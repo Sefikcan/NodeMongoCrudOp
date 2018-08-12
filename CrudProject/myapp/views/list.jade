@@ -1,0 +1,29 @@
+extends layout
+block content
+    div.container
+        div.content
+            div.row
+                h1 Kullanıcı Listesi
+            hr
+            div.row
+                table.table.table-hover.table-bordered
+                    thead
+                        tr 
+                            th Ad
+                            th Soyad
+                            th Doğum Tarihi
+                            th E-Posta
+                            th İşlem
+                    tbody
+                    each user,i in userList
+                        tr
+                            td #{user.ad}
+                            td #{user.soyad}
+                            td #{user.dogumTarihi}
+                            td #{user.email}
+                            td
+                                a.btn.btn-danger.btn-xs(href="/users/delete/"+user._id) Kullanıcıyı Sil
+                hr
+                div.row
+                    div.col-md-12
+                        a.btn.btn-default(href="/users/create") Yeni Kullanıcı Ekle
